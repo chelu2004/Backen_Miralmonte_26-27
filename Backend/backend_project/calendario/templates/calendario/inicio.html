@@ -1,0 +1,51 @@
+{% extends 'template.html' %}
+
+{% block titulo %}
+Calendario
+{% endblock %}
+
+{% block contenido %}
+
+<section class="calendario">
+    <h1>Comprobar una fecha</h1>
+
+    <p>Introduce una fecha para comprobar si es válida.</p>
+
+    <!-- Formulario para introducir una fecha -->
+    <form id="formulario-calendario">
+
+        <label for="fecha">Introduce una fecha:</label>
+
+        <input
+            type="text"
+            id="fecha"
+            name="fecha"
+            placeholder="DD-MM-AAAA"
+            pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
+            title="Introduce la fecha en formato DD-MM-AAAA"
+            required
+        >
+
+        <button type="submit">Comprobar fecha</button>
+
+    </form>
+
+</section>
+
+<!-- JavaScript para enviar la fecha a Django -->
+<script>
+    document.getElementById("formulario-calendario")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            // Obtenemos la fecha introducida
+            const fecha = document.getElementById("fecha").value;
+
+            // Redirigimos a la URL de Django
+            window.location.href = "/calendario/" + encodeURIComponent(fecha) + "/";
+
+        });
+</script>
+
+{% endblock %}

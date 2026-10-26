@@ -1,17 +1,30 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
+<!-- Heredamos la estructura de nuestra plantilla base -->
+{% extends 'template.html' %}
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
+<!-- Definimos el título de la página -->
+{% block titulo %}
+    Inicio - Mi proyecto Django
+{% endblock titulo %}
+
+<!-- Definimos el contenido principal de la página -->
+{% block contenido %}
+
+    <!-- Título principal de nuestra página -->
     <h1>Welcome to my Django project</h1>
+
+    <!-- Mostramos el logo utilizando la carpeta static -->
+    {% load static %}
     <img src="{% static 'images/logo.png' %}" alt="Logo">
+
+    <!-- Descripción de la página -->
     <p>This is my homepage.</p>
-    <a href="/main/">Go to Main application</a>
-    <script src="{% static 'js/script.js' %}"></script>
-</body>
-</html>
+
+    <!-- Enlace para acceder a nuestra aplicación main -->
+    <a href="{% url 'main:homepage' %}">Go to Main application</a>
+
+
+ <!-- Enlace al formulario de la aplicación calendario -->
+<a href="{% url 'calendario:inicio' %}">
+    Ir al calendario
+</a>
+{% endblock contenido %}
