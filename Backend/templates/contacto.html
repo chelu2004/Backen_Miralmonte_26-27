@@ -1,0 +1,44 @@
+<!-- Heredamos la estructura de nuestra plantilla principal -->
+{% extends 'template.html' %}
+
+<!-- Definimos el título de la página -->
+{% block titulo %}
+    Contacto - Mi proyecto Django
+{% endblock titulo %}
+
+<!-- Definimos el contenido de la página de contacto -->
+{% block contenido %}
+
+    <!-- Título de la página -->
+    <h1>Contacto</h1>
+
+    <!-- Texto informativo -->
+    <p>Rellena el siguiente formulario para contactar con nosotros.</p>
+
+    <!-- Formulario de contacto -->
+    <form action="#" method="get">
+
+        <!-- Campo para introducir el nombre -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        
+
+        <!-- Campo para introducir el correo electrónico -->
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        
+
+        <!-- Campo para escribir un mensaje -->
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+       
+
+        <!-- Botón para enviar el formulario -->
+        <button type="submit">Enviar</button>
+
+    </form>
+
+{% endblock contenido %}

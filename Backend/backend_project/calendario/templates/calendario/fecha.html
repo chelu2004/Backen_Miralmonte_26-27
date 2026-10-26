@@ -1,0 +1,28 @@
+<!-- Heredamos el diseño de nuestra plantilla principal -->
+{% extends 'template.html' %}
+
+<!-- Definimos el título de la página -->
+{% block titulo %}
+    Calendario - Mi proyecto Django
+{% endblock titulo %}
+
+<!-- Contenido principal de la página -->
+{% block contenido %}
+
+    <!-- Título de la página -->
+    <h1>Calendario</h1>
+
+    <!-- Mostramos los datos recibidos desde views.py -->
+    <p>Hoy es {{ dia }} del {{ mes }} del año {{ ano }}.</p>
+
+    <!-- Mostramos el mensaje generado en Python -->
+    <p>{{ mensaje }}</p>
+
+    <!-- Enlace para volver al inicio -->
+    <a href="{% url 'homepage' %}">Volver al inicio</a>
+
+    <!-- Enlace para volver al formulario del calendario -->
+<a href="{% url 'calendario:inicio' %}">
+    Volver al calendario
+</a>
+{% endblock contenido %}

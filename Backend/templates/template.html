@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bloque que permite cambiar el título en cada página -->
+    <title>{% block titulo %}Mi proyecto Django{% endblock titulo %}</title>
+
+    <!-- Cargamos el CSS que utilizarán todas las páginas -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Encabezado común para todas las páginas -->
+    <header>
+        <h2>Mi proyecto Django</h2>
+
+       <!-- Menú de navegación común para todas las páginas -->
+<nav>
+    <!-- Enlace a la página principal mediante su nombre -->
+    <a href="{% url 'homepage' %}">Inicio</a>
+
+    <!-- Enlace a la aplicación main utilizando su namespace -->
+    <a href="{% url 'main:homepage' %}">Main</a>
+
+    <!-- Enlace a la página de contacto mediante su nombre -->
+    <a href="{% url 'contacto' %}">Contacto</a>
+</nav>
+    </header>
+
+    <!-- Bloque que permite cambiar el contenido de cada página -->
+    <main>
+        {% block contenido %}
+            <p>Contenido de la página</p>
+        {% endblock contenido %}
+    </main>
+
+    <!-- Pie de página común para todas las páginas -->
+    <footer>
+        <p>Proyecto Django - UT 3</p>
+    </footer>
+
+    <!-- Cargamos el JavaScript común -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

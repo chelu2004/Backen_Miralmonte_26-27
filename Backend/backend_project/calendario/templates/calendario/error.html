@@ -1,0 +1,28 @@
+<!-- Heredamos el diseño de nuestra plantilla principal -->
+{% extends 'template.html' %}
+
+<!-- Definimos el título de la página -->
+{% block titulo %}
+    Error de fecha - Mi proyecto Django
+{% endblock titulo %}
+
+<!-- Contenido principal de la página -->
+{% block contenido %}
+
+    <!-- Título del error -->
+    <h1>Fecha incorrecta</h1>
+
+    <!-- Mostramos el mensaje enviado desde views.py -->
+    <p>{{ mensaje }}</p>
+
+    <!-- Ejemplo del formato correcto -->
+    <p>Ejemplo de fecha válida: 15-10-2026</p>
+
+    <!-- Enlace para volver a la página principal -->
+    <a href="{% url 'homepage' %}">Volver al inicio</a>
+
+    <!-- Enlace para volver al formulario del calendario -->
+<a href="{% url 'calendario:inicio' %}">
+    Volver al calendario
+</a>
+{% endblock contenido %}

@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     'main',
+    # Registramos nuestra aplicación main
+    'main',
+     # Aplicación para trabajar con fechas
+    'calendario',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +58,7 @@ ROOT_URLCONF = 'backend_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # Indicamos la carpeta donde Django debe buscar nuestras plantillas HTML
         'DIRS': [os.path.join(BASE_DIR.parent / 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
