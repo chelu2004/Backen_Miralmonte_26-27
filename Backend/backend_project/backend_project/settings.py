@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'main',
      # Aplicación para trabajar con fechas
     'calendario',
+     # Aplicación para jugar tres en ralla
+    'tres_en_raya',
 ]
 
 MIDDLEWARE = [
