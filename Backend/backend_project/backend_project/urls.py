@@ -42,4 +42,7 @@ urlpatterns = [
       # Rutas de nuestra nueva aplicación calendario
     path("calendario/", include("calendario.urls")),
 
+    # Ruta para acceder a la aplicación tres en raya
+    path("tres-en-raya/", include("tres_en_raya.urls")),
+
 ]

@@ -1,0 +1,41 @@
+{% extends 'template.html' %}
+
+{% block titulo %}
+Tres en raya
+{% endblock %}
+
+{% block contenido %}
+
+<h1>Tres en raya</h1>
+
+<!-- Mostramos el turno o el resultado de la partida -->
+<p>{{ mensaje }}</p>
+
+<!-- Formulario con el tablero del juego -->
+<form class="tablero" action="{% url 'tres_en_raya' %}" method="post">
+    {% csrf_token %}
+
+    <!-- Guardamos el tablero y el turno -->
+    <input type="hidden" name="tablero" value="{{ tablero|join:'' }}">
+    <input type="hidden" name="turno" value="{{ turno }}">
+
+    <!-- Recorremos las nueve casillas -->
+    {% for casilla in tablero %}
+
+        <button type="submit"
+                name="posicion"
+                value="{{ forloop.counter0 }}"
+                {% if terminado or casilla != '-' %}disabled{% endif %}>
+            {{ casilla }}
+        </button>
+
+    {% endfor %}
+
+</form>
+
+<!-- Botón para empezar otra partida -->
+<a href="{% url 'tres_en_raya' %}">
+    Jugar de nuevo
+</a>
+
+{% endblock %}
